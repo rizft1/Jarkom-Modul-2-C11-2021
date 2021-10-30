@@ -220,7 +220,7 @@ Pindah ke directory `/etc/apache2/sites-available` kemudian buka file `super.fra
 
 Selain itu, Luffy juga menyiapkan file error 404.html pada folder /errors untuk mengganti error kode pada apache.
 
-Pindah ke directory `/etc/apache2/sites-available`, lalu buka file `super.franky.d05.com` dan tambahkan :
+Pindah ke directory `/etc/apache2/sites-available`, lalu buka file `super.franky.c11.com` dan tambahkan :
 
 ```bash
         ErrorDocument 404 /error/404.html
@@ -230,19 +230,19 @@ Pindah ke directory `/etc/apache2/sites-available`, lalu buka file `super.franky
 
 Luffy meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset www.super.franky.yyy.com/public/js menjadi www.super.franky.yyy.com/js.
 
-Pindah ke directory `/etc/apache2/sites-available`, lalu buka file `super.franky.d05.com` dan tambahkan :
+Pindah ke directory `/etc/apache2/sites-available`, lalu buka file `super.franky.c11.com` dan tambahkan :
 
 ```bash
-        Alias "/js" "/var/www/super.franky.d05.com/public/js"
+        Alias "/js" "/var/www/super.franky.c11.com/public/js"
 ```
 
 # Soal 14
 
 Luffy meminta untuk web www.general.mecha.franky.yyy.com hanya bisa diakses dengan port 15000 dan port 15500.
 
-Pindah ke directory `/etc/apache2/sites-available`. Lalu copy file `000-default.conf` menjadi file `general.mecha.franky.d05.com.conf`
+Pindah ke directory `/etc/apache2/sites-available`. Lalu copy file `000-default.conf` menjadi file `general.mecha.franky.c11.com.conf`
 
-Lalu setting file `general.mecha.franky.d05.com.conf` agar memiliki `<VirtualHost *:15000 *:15500>`, line `ServerName general.mecha.franky.d05.com`, `ServerAlias www.general.mecha.franky.d05.com`, dan `DocumentRoot /var/www/general.mecha.franky.d05.com`.
+Lalu setting file `general.mecha.franky.c11.com.conf` agar memiliki `<VirtualHost *:15000 *:15500>`, line `ServerName general.mecha.franky.c11.com`, `ServerAlias www.general.mecha.franky.c11.com`, dan `DocumentRoot /var/www/general.mecha.franky.c11.com`.
 
 Kemudian tambahkan port 15000 dan 15500 pada file `/etc/apache2/ports.conf` dengan menambahkan :
 
@@ -251,9 +251,9 @@ Kemudian tambahkan port 15000 dan 15500 pada file `/etc/apache2/ports.conf` deng
     Listen 15500
 ```
 
-Selanjutnya buat directory baru dengan nama `general.mecha.franky.d05.com` pada `/var/www/` menggunakan command `mkdir /var/www/general.mecha.franky.d05.com`. Kemudian copy isi dari folder `general.mecha.franky` yang telah didownload ke `/var/www/general.mecha.franky.d05.com`.
+Selanjutnya buat directory baru dengan nama `general.mecha.franky.c11.com` pada `/var/www/` menggunakan command `mkdir /var/www/general.mecha.franky.c11.com`. Kemudian copy isi dari folder `general.mecha.franky` yang telah didownload ke `/var/www/general.mecha.franky.c11.com`.
 
-Setelah itu, jalankan command `a2ensite general.mecha.franky.d05.com` dan `service apache2 restart`
+Setelah itu, jalankan command `a2ensite general.mecha.franky.c11.com` dan `service apache2 restart`
 
 # Soal 15 
 
@@ -261,16 +261,16 @@ Dengan autentikasi username luffy dan password onepiece dan file di /var/www/gen
 
 Jalankan command `htpasswd -c /etc/apache2/.htpasswd luffy` untuk membuat file yang menyimpan username dan password ke dalam file `/etc/apache2/.htpasswd` dengan user `luffy`, selanjutnya akan ada prompt untuk memasukkan dan mengkonfirmasi password.
 
-Kemudian, edit file `/etc/apache2/sites-available/general.mecha.franky.d05.com.conf` dengan menambahkan :
+Kemudian, edit file `/etc/apache2/sites-available/general.mecha.franky.c11.com.conf` dengan menambahkan :
 
 ```bash
-    <Directory /var/www/general.mecha.franky.d05.com>
+    <Directory /var/www/general.mecha.franky.c11.com>
         Options +FollowSymLinks -Multiviews
         AllowOverride All
     </Directory>
 ```
 
-Lalu, edit file `/var/www/general.mecha.franky.d05.com/.htaccess` menjadi :
+Lalu, edit file `/var/www/general.mecha.franky.c11.com/.htaccess` menjadi :
 
 ```bash
     AuthType Basic
@@ -289,8 +289,8 @@ Edit file `/var/www/html/.htaccess` dengan menambahkan :
 ```bash
     RewriteEngine On
     RewriteBase /
-    RewriteCond %{HTTP_HOST} ^192\.194\.2\.4$
-    RewriteRule ^(.*)$ http://www.franky.d05.com [L,R=301]
+    RewriteCond %{HTTP_HOST} ^192\.189\.2\.4$
+    RewriteRule ^(.*)$ http://www.franky.c11.com [L,R=301]
 ```
 
 Kemudian, edit file `/etc/apache2/sites-available/000-default.conf` dengan menambahkan:
@@ -306,18 +306,18 @@ Kemudian, edit file `/etc/apache2/sites-available/000-default.conf` dengan menam
 
 Karena Franky ingin mengajak temannya untuk dapat menghubunginya melalui website www.super.franky.yyy.com, dan pengunjung web server pasti akan bingung dengan randomnya image yang ada, maka Franky meminta untuk mengganti request gambar yang memiliki substring â€œfrankyâ€ akan diarahkan menuju franky.png.
 
-Edit file `/etc/apache2/sites-available/super.franky.d05.com.conf` dengan menambahkan :
+Edit file `/etc/apache2/sites-available/super.franky.c11.com.conf` dengan menambahkan :
 
 ```bash
-    <Directory /var/www/super.franky.d05.com>
+    <Directory /var/www/super.franky.c11.com>
         Options +FollowSymLinks -Multiviews
         AllowOverride All
     </Directory>
 ```
 
-Selanjutnya, edit file `/var/www/super.franky.d05.com/.htaccess` dengan menambahkan :
+Selanjutnya, edit file `/var/www/super.franky.c11.com/.htaccess` dengan menambahkan :
 
 ```bash
     RewriteEngine On
-    RewriteRule ^(.*)franky(.*)\.(jpg|gif|png)$ http://super.franky.d05.com/public/images/franky.png [L,R]
+    RewriteRule ^(.*)franky(.*)\.(jpg|gif|png)$ http://super.franky.c11.com/public/images/franky.png [L,R]
 ```
