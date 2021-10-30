@@ -12,5 +12,11 @@ Membuat peta atau topologi dengan EniesLobby akan dijadikan sebagai DNS Master, 
 
 dapat diliat masing-masing node bisa tersambung mengakses ke internet :
 
+(gambar node connection)
+(gambar node connection)
+(gambar node connection)
+(gambar node connection)
+(gambar node connection)
+
 # Soal 2 <br>
 Membuat website utama dengan mengakses franky.yyy.com dengan alias www.franky.yyy.com pada folder kaizoku.
